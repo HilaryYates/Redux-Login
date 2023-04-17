@@ -1,7 +1,14 @@
 import React from "react";
+import Login from "./components/Login";
+
+import { selectUser } from "./features/userSlice";
+import { useSelector } from "react-redux";
+import Logout from "./components/Logout";
 
 const App = () => {
-  return <div></div>;
+  const user = useSelector(selectUser);
+
+  return <div>{user ? <Logout /> : <Login />}</div>;
 };
 
 export default App;
